@@ -70,11 +70,11 @@
 
         layer_CHARS {
             bindings = <
- &trans     &trans            &trans          &trans                &trans     &trans            &trans                                                  &trans  &trans                 &trans           &trans             &trans    &trans  &trans
- &trans  &kp COLON          &kp PIPE     &kp PERCENT       &kp EXCLAMATION  &kp TILDE            &trans                                                  &trans   &none           &kp QUESTION         &kp HASH             &kp AT  &kp PLUS  &trans
- &trans  &kp GRAVE  &kp LEFT_BRACKET  &kp LEFT_BRACE  &kp LEFT_PARENTHESIS  &kp EQUAL            &trans  &trans  &trans                  &trans  &trans  &trans   &none  &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACE  &kp RIGHT_BRACKET  &kp STAR  &trans
- &trans      &none         &kp MINUS       &kp SLASH             &kp CARET      &none                            &trans                  &trans                   &none             &kp DOLLAR    &kp BACKSLASH          &kp UNDER     &none  &trans
- &trans     &trans            &trans          &trans                &trans                       &trans  &trans  &trans                  &trans  &trans  &trans                         &trans           &trans             &trans    &trans  &trans
+ &trans     &trans            &trans          &trans                &trans     &trans            &trans                                                  &trans         &trans                 &trans           &trans             &trans    &trans  &trans
+ &trans  &kp COLON            &kp AT     &kp PERCENT       &kp EXCLAMATION  &kp TILDE            &trans                                                  &trans  &kp AMPERSAND           &kp QUESTION         &kp HASH           &kp PIPE  &kp PLUS  &trans
+ &trans  &kp GRAVE  &kp LEFT_BRACKET  &kp LEFT_BRACE  &kp LEFT_PARENTHESIS  &kp EQUAL            &trans  &trans  &trans                  &trans  &trans  &trans          &none  &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACE  &kp RIGHT_BRACKET  &kp STAR  &trans
+ &trans      &none         &kp MINUS       &kp SLASH             &kp CARET      &none                            &trans                  &trans                          &none             &kp DOLLAR    &kp BACKSLASH          &kp UNDER     &none  &trans
+ &trans     &trans            &trans          &trans                &trans                       &trans  &trans  &trans                  &trans  &trans  &trans                                &trans           &trans             &trans    &trans  &trans
             >;
         };
 
