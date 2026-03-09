@@ -521,6 +521,8 @@
 /* System behavior and Macros */
 / {
     behaviors {
+        #include "macros.dtsi"
+        #include "version.dtsi"
         ZMK_TD_LAYER(lower, LAYER_Lower)
     };
 };
