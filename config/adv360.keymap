@@ -21,7 +21,6 @@
         flavor = "balanced";
         hold-trigger-on-release;
         hold-while-undecided;
-        hold-while-undecided-lax-key-usage;
         bindings = <&kp>, <&kp>;
         hold-trigger-key-positions = <
           /* right hand alpha keys */
@@ -43,7 +42,6 @@
         flavor = "balanced";
         hold-trigger-on-release;
         hold-while-undecided;
-        hold-while-undecided-lax-key-usage;
         bindings = <&kp>, <&kp>;
         hold-trigger-key-positions = <
           /* right hand alpha keys */
@@ -105,7 +103,6 @@
         flavor = "balanced";
         hold-trigger-on-release;
         hold-while-undecided;
-        hold-while-undecided-lax-key-usage;
         bindings = <&kp>, <&kp>;
         hold-trigger-key-positions = <
           /* left hand alpha keys */
@@ -127,7 +124,6 @@
         flavor = "balanced";
         hold-trigger-on-release;
         hold-while-undecided;
-        hold-while-undecided-lax-key-usage;
         bindings = <&kp>, <&kp>;
         hold-trigger-key-positions = <
           /* left hand alpha keys */
