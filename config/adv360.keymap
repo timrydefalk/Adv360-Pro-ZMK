@@ -406,7 +406,6 @@ R5       _        `        :     LEFT    RIGHT                         BKSP    D
     compatible = "zmk,keymap";
 
     default_layer {
-    default_layer {
       display-name = "Base";
       bindings = <
         &none  &none                        &kp KEY_LH_C4R1             &kp KEY_LH_C3R1                &none                         &none            &none                                                                                             &none  &none               &none                         &none                          &kp KEY_RH_C3R1             &kp KEY_RH_C4R1             &none
