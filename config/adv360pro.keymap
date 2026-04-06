@@ -887,6 +887,22 @@ R5       _        `        :     LEFT    RIGHT                         BKSP    D
             #binding-cells = <2>;
             bindings = <&mo>, <&kp>;
         };
+        sticky_key_modtap: sticky_key_modtap {
+            compatible = "zmk,behavior-hold-tap";
+            flavor = "tap-preferred";
+            tapping-term-ms = <300>;
+            #binding-cells = <2>;
+            bindings = <&kp>, <&sticky_key_oneshot>;
+        };
+
+        magic: magic {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MAGIC_HOLD_TAP";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&mo>;
+        };
     };
 
     keymap {
@@ -1042,7 +1058,7 @@ R5       _        `        :     LEFT    RIGHT                         BKSP    D
             >;
         };
 
-        mod {
+        layer_Magic {
             display-name = "Mod";
             bindings = <
 &none           &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &none                                                  &trans           &none  &none       &none       &none  &none  &none
