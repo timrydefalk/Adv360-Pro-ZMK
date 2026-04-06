@@ -1,0 +1,452 @@
+#include <dt-bindings/zmk/stp.h>
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/backlight.h>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/rgb.h>
+
+/* Key positions */
+/*
+     LH_C6    LH_C5    LH_C4    LH_C3    LH_C2    LH_C1    LH_C0                                                           RH_C0    RH_C1    RH_C2    RH_C3    RH_C4    RH_C5    RH_C6
+
+R1       0        1        2        3        4        5        6                                                               7        8        9       10       11       12       13
+R2      14       15       16       17       18       19       20                                                              21       22       23       24       25       26       27
+R3      28       29       30       31       32       33       34                35       36       37       38                 39       40       41       42       43       44       45
+R4      46       47       48       49       50       51                                  52       53                                   54       55       56       57       58       59
+R5      60       61       62       63       64                         65       66       67       68       69       70                          71       72       73       74       75
+*/
+// Row 1
+
+#define POS_LH_C6R1 0
+#define POS_LH_C5R1 1
+#define POS_LH_C4R1 2
+#define POS_LH_C3R1 3
+#define POS_LH_C2R1 4
+#define POS_LH_C1R1 5
+#define POS_LH_C0R1 6
+#define POS_RH_C0R1 7
+#define POS_RH_C1R1 8
+#define POS_RH_C2R1 9
+#define POS_RH_C3R1 10
+#define POS_RH_C4R1 11
+#define POS_RH_C5R1 12
+#define POS_RH_C6R1 13
+
+// Row 2
+
+#define POS_LH_C6R2 14
+#define POS_LH_C5R2 15
+#define POS_LH_C4R2 16
+#define POS_LH_C3R2 17
+#define POS_LH_C2R2 18
+#define POS_LH_C1R2 19
+#define POS_LH_C0R2 20
+#define POS_RH_C0R2 21
+#define POS_RH_C1R2 22
+#define POS_RH_C2R2 23
+#define POS_RH_C3R2 24
+#define POS_RH_C4R2 25
+#define POS_RH_C5R2 26
+#define POS_RH_C6R2 27
+
+// Row 3
+
+#define POS_LH_C6R3 28
+#define POS_LH_C5R3 29
+#define POS_LH_C4R3 30
+#define POS_LH_C3R3 31
+#define POS_LH_C2R3 32
+#define POS_LH_C1R3 33
+#define POS_LH_C0R3 34
+#define POS_LH_T1 35
+#define POS_LH_T2 36
+#define POS_RH_T2 37
+#define POS_RH_T1 38
+#define POS_RH_C0R3 39
+#define POS_RH_C1R3 40
+#define POS_RH_C2R3 41
+#define POS_RH_C3R3 42
+#define POS_RH_C4R3 43
+#define POS_RH_C5R3 44
+#define POS_RH_C6R3 45
+
+// Row 4
+
+#define POS_LH_C6R4 46
+#define POS_LH_C5R4 47
+#define POS_LH_C4R4 48
+#define POS_LH_C3R4 49
+#define POS_LH_C2R4 50
+#define POS_LH_C1R4 51
+#define POS_LH_T3 52
+#define POS_RH_T3 53
+#define POS_RH_C1R4 54
+#define POS_RH_C2R4 55
+#define POS_RH_C3R4 56
+#define POS_RH_C4R4 57
+#define POS_RH_C5R4 58
+#define POS_RH_C6R4 59
+
+// Row 5
+
+#define POS_LH_C6R5 60
+#define POS_LH_C5R5 61
+#define POS_LH_C4R5 62
+#define POS_LH_C3R5 63
+#define POS_LH_C2R5 64
+#define POS_LH_T4 65
+#define POS_LH_T5 66
+#define POS_LH_T6 67
+#define POS_RH_T6 68
+#define POS_RH_T5 69
+#define POS_RH_T4 70
+#define POS_RH_C2R5 71
+#define POS_RH_C3R5 72
+#define POS_RH_C4R5 73
+#define POS_RH_C5R5 74
+#define POS_RH_C6R5 75
+
+//
+// Keymap specific knowledge of the base layer's alpha + ZMK layout
+//
+/*
+     LH_C6    LH_C5    LH_C4    LH_C3    LH_C2    LH_C1    LH_C0                                                           RH_C0    RH_C1    RH_C2    RH_C3    RH_C4    RH_C5    RH_C6
+
+R1       _        _        ^        /        _        _        _                                                               _        _        _        |        $        _        _
+R2       _        ;        ,        .        p        y        _                                                               _        f        g        c        r        l        _
+R3       _        a        o        e        u        i        _               ESC        ^        $      RET                  _        d        h        t        n        s        _
+R4       _        '        q        j        k        x                                   _        _                                    b        m        w        v        z        _
+R5       _        `        :     LEFT    RIGHT                         BKSP    DEL        _        _      TAB      SPC                          UP     DOWN        :        %        _
+*/
+// Row 1
+//#define KEY_LH_C6R1 0
+//#define KEY_LH_C5R1 1
+
+#define KEY_LH_C4R1 CARET
+#define KEY_LH_C3R1 SLASH
+
+//#define KEY_LH_C2R1 4
+//#define KEY_LH_C1R1 5
+//#define KEY_LH_C0R1 6
+//#define KEY_RH_C0R1 7
+//#define KEY_RH_C1R1 8
+//#define KEY_RH_C2R1 9
+
+#define KEY_RH_C3R1 PIPE
+#define KEY_RH_C4R1 DOLLAR
+
+//#define KEY_RH_C5R1 12
+//#define KEY_RH_C6R1 13
+// Row 2
+//#define KEY_LH_C6R2 14
+
+#define KEY_LH_C5R2 SEMICOLON
+#define KEY_LH_C4R2 COMMA
+#define KEY_LH_C3R2 PERIOD
+#define KEY_LH_C2R2 P
+#define KEY_LH_C1R2 Y
+
+//#define KEY_LH_C0R2 20
+//#define KEY_RH_C0R2 21
+
+#define KEY_RH_C1R2 F
+#define KEY_RH_C2R2 G
+#define KEY_RH_C3R2 C
+#define KEY_RH_C4R2 R
+#define KEY_RH_C5R2 L
+
+//#define KEY_RH_C6R2 27
+// Row 3
+//#define KEY_LH_C6R3 28
+
+#define KEY_LH_C5R3 A
+#define KEY_LH_C4R3 O
+#define KEY_LH_C3R3 E
+#define KEY_LH_C2R3 U
+#define KEY_LH_C1R3 I
+
+//#define KEY_LH_C0R3 34
+
+#define KEY_LH_T1 ESCAPE
+#define KEY_LH_T2 CARET
+#define KEY_RH_T2 RETURN
+#define KEY_RH_T1 DOLLAR
+
+//#define KEY_RH_C0R3 39
+
+#define KEY_RH_C1R3 D
+#define KEY_RH_C2R3 H
+#define KEY_RH_C3R3 T
+#define KEY_RH_C4R3 N
+#define KEY_RH_C5R3 S
+
+//#define KEY_RH_C6R3 45
+// Row 4
+//#define KEY_LH_C6R4 46
+
+#define KEY_LH_C5R4 SINGLE_QUOTE
+#define KEY_LH_C4R4 Q
+#define KEY_LH_C3R4 J
+#define KEY_LH_C2R4 K
+#define KEY_LH_C1R4 X
+
+//#define KEY_LH_T3 52
+//#define KEY_RH_T3 53
+
+#define KEY_RH_C1R4 B
+#define KEY_RH_C2R4 M
+#define KEY_RH_C3R4 W
+#define KEY_RH_C4R4 V
+#define KEY_RH_C5R4 Z
+
+//#define KEY_RH_C6R4 59
+// Row 5
+//#define KEY_LH_C6R5 60
+
+#define KEY_LH_C5R5 GRAVE
+#define KEY_LH_C4R5 COLON
+#define KEY_LH_C3R5 LEFT
+#define KEY_LH_C2R5 RIGHT
+#define KEY_LH_T4 BACKSPACE
+#define KEY_LH_T5 DELETE
+
+//#define KEY_LH_T6 67
+//#define KEY_RH_T6 68
+
+#define KEY_RH_T5 TAB
+#define KEY_RH_T4 SPACE
+#define KEY_RH_C2R5 UP
+#define KEY_RH_C3R5 DOWN
+#define KEY_RH_C4R5 ESCAPE
+#define KEY_RH_C5R5 PERCENT
+
+//#define KEY_RH_C6R5 75
+/* Automatically generated layer name defines */
+
+#define LAYER_Dvorak 0
+#define LAYER_Typing 1
+#define LAYER_LeftPinky 2
+#define LAYER_LeftRingy 3
+#define LAYER_LeftMiddy 4
+#define LAYER_LeftIndex 5
+#define LAYER_RightPinky 6
+#define LAYER_RightRingy 7
+#define LAYER_RightMiddy 8
+#define LAYER_RightIndex 9
+#define LAYER_Number 10
+#define LAYER_Function 11
+#define LAYER_Symbol 12
+#define LAYER_Mouse 13
+#define LAYER_MouseSlow 14
+#define LAYER_MouseFast 15
+#define LAYER_MouseWarp 16
+#define LAYER_System 17
+#define LAYER_World 18
+#define LAYER_Gaming 19
+#define LAYER_Magic 20
+
+#define LEFT_PINKY_KEY  KEY_LH_C5R3
+#define LEFT_RINGY_KEY  KEY_LH_C4R3
+#define LEFT_MIDDY_KEY  KEY_LH_C3R3
+#define LEFT_INDEX_KEY  KEY_LH_C2R3
+
+#define RIGHT_PINKY_KEY KEY_RH_C5R3
+#define RIGHT_RINGY_KEY KEY_RH_C4R3
+#define RIGHT_MIDDY_KEY KEY_RH_C3R3
+#define RIGHT_INDEX_KEY KEY_RH_C2R3
+
+#include "zmk-helpers/helper.h"
+#include "homerow.h"
+
+
+/ {
+    behaviors {
+        #include "macros.dtsi"
+        #include "version.dtsi"
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+
+       layer_Dvorak {
+            bindings = <
+    &none                   &none                                   &kp KEY_LH_C4R1                         &kp KEY_LH_C3R1                         &caps_word                               &sticky_key_modtap LSFT LSFT            &none                                                                                                                                                                                                             &none &sticky_key_modtap RSFT RSFT   &caps_word                               &kp KEY_RH_C3R1                          &kp KEY_RH_C4R1                          &none                                   &none
+    &none                   &kp KEY_LH_C5R2                         &kp KEY_LH_C4R2                         &kp KEY_LH_C3R2                         &kp KEY_LH_C2R2                          &kp KEY_LH_C1R2                         &none                                                                                                                                                                                                             &none &kp KEY_RH_C1R2                &kp KEY_RH_C2R2                          &kp KEY_RH_C3R2                          &kp KEY_RH_C4R2                          &kp KEY_RH_C5R2                         &none
+    &tog LAYER_Typing       &hml_pinky KEY_LH_C5R3 LAYER_Dvorak     &hml_ring KEY_LH_C4R3 LAYER_Dvorak      &hml_middle KEY_LH_C3R3 LAYER_Dvorak    &hml_index KEY_LH_C2R3 LAYER_Dvorak      &kp KEY_LH_C1R3                         &none                                   &thumb LAYER_Number KEY_LH_T1     &thumb LAYER_Function KEY_LH_T2   &thumb LAYER_World KEY_RH_T2  &thumb LAYER_Symbol KEY_RH_T1                                           &none &kp KEY_RH_C1R3                &hmr_index KEY_RH_C2R3 LAYER_Dvorak    &hmr_middle KEY_RH_C3R3 LAYER_Dvorak   &hmr_ring KEY_RH_C4R3 LAYER_Dvorak     &hmr_pinky KEY_RH_C5R3 LAYER_Dvorak &none
+    &none                   &kp KEY_LH_C5R4                         &kp KEY_LH_C4R4                         &kp KEY_LH_C3R4                         &kp KEY_LH_C2R4                          &kp KEY_LH_C1R4                                                                                                   &none                             &none                                                                                                       &kp KEY_RH_C1R4                &kp KEY_RH_C2R4                          &kp KEY_RH_C3R4                          &kp KEY_RH_C4R4                          &kp KEY_RH_C5R4                         &none
+    &magic LAYER_Magic 0    &kp KEY_LH_C5R5                         &kp KEY_LH_C4R5                         &kp KEY_LH_C3R5                         &kp KEY_LH_C2R5                                                                           &thumb LAYER_Number KEY_LH_T4  &thumb LAYER_Function KEY_LH_T5   &none                             &none                         &kp KEY_RH_T5                  &LAYER_Symbol KEY_RH_T4                                                       &kp KEY_RH_C2R5                          &kp KEY_RH_C3R5                          &kp KEY_RH_C4R5                          &kp KEY_RH_C5R5                         &magic LAYER_Magic 0
+            >;
+        };
+
+        layer_Typing {
+            bindings = <
+    &trans &trans              &trans              &trans              &trans             &trans &trans                                              &trans &trans &trans               &trans               &trans               &trans              &trans
+    &trans &trans              &trans              &trans              &trans             &trans &trans                                              &trans &trans &trans               &trans               &trans               &trans              &trans
+    &trans &kp LEFT_PINKY_KEY  &kp LEFT_RINGY_KEY  &kp LEFT_MIDDY_KEY  &kp LEFT_INDEX_KEY &trans &trans          &trans &trans  &trans &trans        &trans &trans &kp RIGHT_INDEX_KEY  &kp RIGHT_MIDDY_KEY  &kp RIGHT_RINGY_KEY  &kp RIGHT_PINKY_KEY &trans
+    &trans &trans              &trans              &trans              &trans             &trans                        &trans  &trans                      &trans &trans               &trans               &trans               &trans              &trans
+    &trans &trans              &trans              &trans              &trans                             &trans &trans &trans  &trans &trans &trans               &trans               &trans               &trans               &trans              &trans
+            >;
+        };
+
+        layer_LeftPinky {
+            bindings = <
+    &trans &trans                       &trans                       &trans                       &trans                       &trans                      &trans                                              &trans &trans &trans               &trans               &trans               &trans              &trans
+    &trans &hml_pinky_tap KEY_LH_C5R2  &hml_pinky_tap KEY_LH_C4R2  &hml_pinky_tap KEY_LH_C3R2  &hml_pinky_tap KEY_LH_C2R2  &hml_pinky_tap KEY_LH_C1R2 &trans                                              &trans &trans &trans               &trans               &trans               &trans              &trans
+    &trans &none                        &LeftPinkyRingy              &LeftPinkyMiddy              &LeftPinkyIndex              &hml_pinky_tap KEY_LH_C1R3 &trans          &trans &trans  &trans &trans        &trans &trans &kp RIGHT_INDEX_KEY  &kp RIGHT_MIDDY_KEY  &kp RIGHT_RINGY_KEY  &kp RIGHT_PINKY_KEY &trans
+    &trans &hml_pinky_tap KEY_LH_C5R4  &hml_pinky_tap KEY_LH_C4R4  &hml_pinky_tap KEY_LH_C3R4  &hml_pinky_tap KEY_LH_C2R4  &hml_pinky_tap KEY_LH_C1R4                        &trans  &trans                      &trans &trans               &trans               &trans               &trans              &trans
+    &trans &hml_pinky_tap KEY_LH_C5R5  &hml_pinky_tap KEY_LH_C4R5  &hml_pinky_tap KEY_LH_C3R5  &hml_pinky_tap KEY_LH_C2R5                                       &trans &trans &trans  &trans &trans &trans               &trans               &trans               &trans               &trans              &trans
+            >;
+        };
+
+        layer_LeftRingy {
+            bindings = <
+    &trans &trans                       &trans                       &trans                       &trans                       &trans                      &trans                                              &trans &trans &trans               &trans               &trans               &trans              &trans
+    &trans &hml_ring_tap KEY_LH_C5R2  &hml_ring_tap KEY_LH_C4R2  &hml_ring_tap KEY_LH_C3R2  &hml_ring_tap KEY_LH_C2R2  &hml_ring_tap KEY_LH_C1R2 &trans                                              &trans &trans &trans               &trans               &trans               &trans              &trans
+    &trans &LeftRingyPinky              &none                        &LeftRingyMiddy              &LeftRingyIndex              &hml_ring_tap KEY_LH_C1R3 &trans          &trans &trans  &trans &trans        &trans &trans &kp RIGHT_INDEX_KEY  &kp RIGHT_MIDDY_KEY  &kp RIGHT_RINGY_KEY  &kp RIGHT_PINKY_KEY &trans
+    &trans &hml_ring_tap KEY_LH_C5R4  &hml_ring_tap KEY_LH_C4R4  &hml_ring_tap KEY_LH_C3R4  &hml_ring_tap KEY_LH_C2R4  &hml_ring_tap KEY_LH_C1R4                        &trans  &trans                      &trans &trans               &trans               &trans               &trans              &trans
+    &trans &hml_ring_tap KEY_LH_C5R5  &hml_ring_tap KEY_LH_C4R5  &hml_ring_tap KEY_LH_C3R5  &hml_ring_tap KEY_LH_C2R5                                       &trans &trans &trans  &trans &trans &trans               &trans               &trans               &trans               &trans              &trans
+            >;
+        };
+
+        layer_LeftMiddy {
+            bindings = <
+    &trans &trans                       &trans                       &trans                       &trans                       &trans                      &trans                                              &trans &trans &trans               &trans               &trans               &trans              &trans
+    &trans &hml_middle_tap KEY_LH_C5R2  &hml_middle_tap KEY_LH_C4R2  &hml_middle_tap KEY_LH_C3R2  &hml_middle_tap KEY_LH_C2R2  &hml_middle_tap KEY_LH_C1R2 &trans                                              &trans &trans &trans               &trans               &trans               &trans              &trans
+    &trans &LeftMiddyPinky              &LeftMiddyRingy              &none                        &LeftMiddyIndex              &hml_middle_tap KEY_LH_C1R3 &trans          &trans &trans  &trans &trans        &trans &trans &kp RIGHT_INDEX_KEY  &kp RIGHT_MIDDY_KEY  &kp RIGHT_RINGY_KEY  &kp RIGHT_PINKY_KEY &trans
+    &trans &hml_middle_tap KEY_LH_C5R4  &hml_middle_tap KEY_LH_C4R4  &hml_middle_tap KEY_LH_C3R4  &hml_middle_tap KEY_LH_C2R4  &hml_middle_tap KEY_LH_C1R4                        &trans  &trans                      &trans &trans               &trans               &trans               &trans              &trans
+    &trans &hml_middle_tap KEY_LH_C5R5  &hml_middle_tap KEY_LH_C4R5  &hml_middle_tap KEY_LH_C3R5  &hml_middle_tap KEY_LH_C2R5                                       &trans &trans &trans  &trans &trans &trans               &trans               &trans               &trans               &trans              &trans
+            >;
+        };
+
+        layer_LeftIndex {
+            bindings = <
+    &trans &trans                       &trans                       &trans                       &trans                       &trans                      &trans                                              &trans &trans &trans               &trans               &trans               &trans              &trans
+    &trans &hml_index_tap KEY_LH_C5R2  &hml_index_tap KEY_LH_C4R2  &hml_index_tap KEY_LH_C3R2  &hml_index_tap KEY_LH_C2R2  &hml_index_tap KEY_LH_C1R2 &trans                                              &trans &trans &trans               &trans               &trans               &trans              &trans
+    &trans &LeftIndexPinky              &LeftIndexRingy              &LeftIndexMiddy              &none                        &hml_index_tap KEY_LH_C1R3 &trans          &trans &trans  &trans &trans        &trans &trans &kp RIGHT_INDEX_KEY  &kp RIGHT_MIDDY_KEY  &kp RIGHT_RINGY_KEY  &kp RIGHT_PINKY_KEY &trans
+    &trans &hml_index_tap KEY_LH_C5R4  &hml_index_tap KEY_LH_C4R4  &hml_index_tap KEY_LH_C3R4  &hml_index_tap KEY_LH_C2R4  &hml_index_tap KEY_LH_C1R4                        &trans  &trans                      &trans &trans               &trans               &trans               &trans              &trans
+    &trans &hml_index_tap KEY_LH_C5R5  &hml_index_tap KEY_LH_C4R5  &hml_index_tap KEY_LH_C3R5  &hml_index_tap KEY_LH_C2R5                                       &trans &trans &trans  &trans &trans &trans               &trans               &trans               &trans               &trans              &trans
+            >;
+        };
+
+        layer_RightPinky {
+            bindings = <
+    &trans &trans              &trans              &trans              &trans             &trans &trans                                             &trans &trans                        &trans                        &trans                        &trans                        &trans                       &trans
+    &trans &trans              &trans              &trans              &trans             &trans &trans                                             &trans &hmr_pinky_tap KEY_RH_C1R2  &hmr_pinky_tap KEY_RH_C2R2  &hmr_pinky_tap KEY_RH_C3R2  &hmr_pinky_tap KEY_RH_C4R2  &hmr_pinky_tap KEY_RH_C5R2 &trans
+    &trans &kp LEFT_PINKY_KEY  &kp LEFT_RINGY_KEY  &kp LEFT_MIDDY_KEY  &kp LEFT_INDEX_KEY &trans &trans         &trans &trans  &trans &trans        &trans &hmr_pinky_tap KEY_RH_C1R3              &RightPinkyIndex              &RightPinkyMiddy              &RightPinkyRingy                         &none &trans
+    &trans &trans              &trans              &trans              &trans             &trans                       &trans  &trans                      &hmr_pinky_tap KEY_RH_C1R4  &hmr_pinky_tap KEY_RH_C2R4  &hmr_pinky_tap KEY_RH_C3R4  &hmr_pinky_tap KEY_RH_C4R4  &hmr_pinky_tap KEY_RH_C5R4 &trans
+    &trans &trans              &trans              &trans              &trans                            &trans &trans &trans  &trans &trans &trans                                      &hmr_pinky_tap KEY_RH_C2R5  &hmr_pinky_tap KEY_RH_C3R5  &hmr_pinky_tap KEY_RH_C4R5  &hmr_pinky_tap KEY_RH_C5R5 &trans
+            >;
+        };
+
+        layer_RightRingy {
+            bindings = <
+    &trans &trans              &trans              &trans              &trans             &trans &trans                                             &trans &trans                        &trans                        &trans                        &trans                        &trans                       &trans
+    &trans &trans              &trans              &trans              &trans             &trans &trans                                             &trans &hmr_ring_tap KEY_RH_C1R2  &hmr_ring_tap KEY_RH_C2R2  &hmr_ring_tap KEY_RH_C3R2  &hmr_ring_tap KEY_RH_C4R2  &hmr_ring_tap KEY_RH_C5R2 &trans
+    &trans &kp LEFT_PINKY_KEY  &kp LEFT_RINGY_KEY  &kp LEFT_MIDDY_KEY  &kp LEFT_INDEX_KEY &trans &trans         &trans &trans  &trans &trans        &trans &hmr_ring_tap KEY_RH_C1R3              &RightRingyIndex              &RightRingyMiddy                         &none              &RightRingyPinky &trans
+    &trans &trans              &trans              &trans              &trans             &trans                       &trans  &trans                      &hmr_ring_tap KEY_RH_C1R4  &hmr_ring_tap KEY_RH_C2R4  &hmr_ring_tap KEY_RH_C3R4  &hmr_ring_tap KEY_RH_C4R4  &hmr_ring_tap KEY_RH_C5R4 &trans
+    &trans &trans              &trans              &trans              &trans                            &trans &trans &trans  &trans &trans &trans                                      &hmr_ring_tap KEY_RH_C2R5  &hmr_ring_tap KEY_RH_C3R5  &hmr_ring_tap KEY_RH_C4R5  &hmr_ring_tap KEY_RH_C5R5 &trans
+            >;
+        };
+
+        layer_RightMiddy {
+            bindings = <
+    &trans &trans              &trans              &trans              &trans             &trans &trans                                             &trans &trans                        &trans                        &trans                        &trans                        &trans                       &trans
+    &trans &trans              &trans              &trans              &trans             &trans &trans                                             &trans &hmr_middle_tap KEY_RH_C1R2  &hmr_middle_tap KEY_RH_C2R2  &hmr_middle_tap KEY_RH_C3R2  &hmr_middle_tap KEY_RH_C4R2  &hmr_middle_tap KEY_RH_C5R2 &trans
+    &trans &kp LEFT_PINKY_KEY  &kp LEFT_RINGY_KEY  &kp LEFT_MIDDY_KEY  &kp LEFT_INDEX_KEY &trans &trans         &trans &trans  &trans &trans        &trans &hmr_middle_tap KEY_RH_C1R3              &RightMiddyIndex                         &none              &RightMiddyRingy              &RightMiddyPinky &trans
+    &trans &trans              &trans              &trans              &trans             &trans                       &trans  &trans                      &hmr_middle_tap KEY_RH_C1R4  &hmr_middle_tap KEY_RH_C2R4  &hmr_middle_tap KEY_RH_C3R4  &hmr_middle_tap KEY_RH_C4R4  &hmr_middle_tap KEY_RH_C5R4 &trans
+    &trans &trans              &trans              &trans              &trans                            &trans &trans &trans  &trans &trans &trans                                      &hmr_middle_tap KEY_RH_C2R5  &hmr_middle_tap KEY_RH_C3R5  &hmr_middle_tap KEY_RH_C4R5  &hmr_middle_tap KEY_RH_C5R5 &trans
+            >;
+        };
+
+        layer_RightIndex {
+            bindings = <
+    &trans &trans              &trans              &trans              &trans             &trans &trans                                             &trans &trans                        &trans                        &trans                        &trans                        &trans                       &trans
+    &trans &trans              &trans              &trans              &trans             &trans &trans                                             &trans &hmr_index_tap KEY_RH_C1R2  &hmr_index_tap KEY_RH_C2R2  &hmr_index_tap KEY_RH_C3R2  &hmr_index_tap KEY_RH_C4R2  &hmr_index_tap KEY_RH_C5R2 &trans
+    &trans &kp LEFT_PINKY_KEY  &kp LEFT_RINGY_KEY  &kp LEFT_MIDDY_KEY  &kp LEFT_INDEX_KEY &trans &trans         &trans &trans  &trans &trans        &trans &hmr_index_tap KEY_RH_C1R3                         &none              &RightIndexMiddy              &RightIndexRingy              &RightIndexPinky &trans
+    &trans &trans              &trans              &trans              &trans             &trans                       &trans  &trans                      &hmr_index_tap KEY_RH_C1R4  &hmr_index_tap KEY_RH_C2R4  &hmr_index_tap KEY_RH_C3R4  &hmr_index_tap KEY_RH_C4R4  &hmr_index_tap KEY_RH_C5R4 &trans
+    &trans &trans              &trans              &trans              &trans                            &trans &trans &trans  &trans &trans &trans                                      &hmr_index_tap KEY_RH_C2R5  &hmr_index_tap KEY_RH_C3R5  &hmr_index_tap KEY_RH_C4R5  &hmr_index_tap KEY_RH_C5R5 &trans
+            >;
+        };
+
+        layer_Number {
+            bindings = <
+    &none &none               &none               &none               &none              &none &none                                               &none &none &none       &none       &none      &none &none
+    &none &none               &none               &none               &none              &none &none                                               &none &none &kp _KP_N7  &kp _KP_N8  &kp _KP_N9 &none &none
+    &none &kp LEFT_PINKY_MOD  &kp LEFT_RINGY_MOD  &kp LEFT_MIDDY_MOD  &kp LEFT_INDEX_MOD &none &none          &none &none  &none &none             &none &none &kp _KP_N4  &kp _KP_N5  &kp _KP_N6 &none &none
+    &none &none               &none               &none               &none              &none                      &none  &none                         &none &kp _KP_N1  &kp _KP_N2  &kp _KP_N3 &none &none
+    &none &none               &none               &trans              &trans                            &none &none &none  &none &none &kp _KP_N0              &trans      &trans      &none      &none &none
+            >;
+        };
+
+        layer_Function {
+            bindings = <
+    &none &none               &none               &none               &none              &none &none                                               &none &none &none   &none   &none  &none   &none
+    &none &none               &none               &none               &none              &none &none                                               &none &none &kp F7  &kp F8  &kp F9 &kp F10 &none
+    &none &kp LEFT_PINKY_MOD  &kp LEFT_RINGY_MOD  &kp LEFT_MIDDY_MOD  &kp LEFT_INDEX_MOD &none &none          &none &none  &none &none             &none &none &kp F4  &kp F5  &kp F6 &kp F11 &none
+    &none &none               &none               &none               &none              &none                      &none  &none                         &none &kp F1  &kp F2  &kp F3 &kp F12 &none
+    &none &none               &none               &trans              &trans                            &none &none &none  &none &none &none                   &trans  &trans  &none  &none   &none
+            >;
+        };
+
+        layer_Symbol {
+            bindings = <
+    &none &none               &none          &none         &none           &none         &none                                               &none &none       &none         &none           &none         &none         &none
+    &none &kp LS(SEMI)        &kp LS(N2)     &kp LBKT      &kp RBKT        &kp LS(GRAVE) &none                                               &none &kp LS(N7)  &kp LS(FSLH)  &kp LS(N3)      &kp LS(BSLH)  &kp LS(EQUAL) &none
+    &none &kp GRAVE           &kp MINUS      &kp LS(N9)    &kp LS(N0)      &kp EQUAL     &none          &none &none  &none &none             &none &kp LS(N1)  &kp LS(N5)    &kp LS(RBKT)    &kp FSLH      &kp LS(N8)    &none
+    &none &none               &kp LS(MINUS)  &kp LS(LBKT)  &kp LS(RBKT)    &none                              &none  &none                         &none       &kp LS(N6)    &kp LS(N4)      &kp BSLH      &none         &none
+    &none &none               &none          &trans        &trans                                 &none &none &none  &none &none &none                         &trans        &trans          &none         &none         &none
+            >;
+        };
+
+        layer_System {
+            bindings = <
+    &none &none &none &none &none &none &none                                          &none &none &none &none &none &none &none
+    &none &none &none &none &none &none &none                                          &none &none &none &none &none &none &none
+    &none &none &none &none &none &none &none          &none &none  &none &none        &none &none &none &none &none &none &none
+    &none &none &none &none &none &none                      &none  &none                    &none &none &none &none &none &none
+    &none &none &none &none &none                &none &none &none  &none &none &none              &none &none &none &none &none
+            >;
+        };
+
+        layer_Gaming {
+            bindings = <
+    &none &none &none &none &none &none &none                                          &none &none &none &none &none &none &none
+    &none &none &none &none &none &none &none                                          &none &none &none &none &none &none &none
+    &none &none &none &none &none &none &none          &none &none  &none &none        &none &none &none &none &none &none &none
+    &none &none &none &none &none &none                      &none  &none                    &none &none &none &none &none &none
+    &none &none &none &none &none                &none &none &none  &none &none &none              &none &none &none &none &none
+            >;
+        };
+
+        mod {
+            display-name = "Mod";
+            bindings = <
+&none           &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &none                                                  &trans           &none  &none       &none       &none  &none  &none
+&none           &none         &none         &none         &none         &none         &bootloader                                            &bootloader      &none  &none       &none       &none  &none  &none
+&studio_unlock  &none         &none         &none         &none         &none         &none        &none  &none      &bt BT_CLR  &none       &stp STP_BAT     &none  &none       &none       &none  &none  &none
+&none           &none         &none         &none         &macro_ver    &none                             &none      &none                                    &none  &none       &none       &none  &none  &none
+&none           &none         &none         &none         &none                       &none        &none  &none      &none       &bl BL_TOG  &rgb_ug RGB_TOG         &bl BL_INC  &bl BL_DEC  &none  &none  &none
+            >;
+        };
+
+        extra1 {
+            display-name = "Red";
+            status = "reserved";
+        };
+
+        extra2 {
+            display-name = "Purple";
+            status = "reserved";
+        };
+
+        extra3 {
+            display-name = "Cyan";
+            status = "reserved";
+        };
+
+        extra4 {
+            display-name = "Yellow";
+            status = "reserved";
+        };
+    };
+};
